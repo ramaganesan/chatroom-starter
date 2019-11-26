@@ -1,0 +1,4 @@
+spring:
+  thymeleaf:
+    cache: false
+websocketUrl: ws://localhost:8080/chat

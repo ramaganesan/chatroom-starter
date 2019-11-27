@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 @RestController
 public class WebSocketChatApplication {
 
-    @Value("${websocketUrl}")
+    @Value("${chatroom-starter.websocketUrl}")
     private String webSocketUrl;
 
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class WebSocketChatApplication {
      */
     @GetMapping("/")
     public ModelAndView login() {
-        return new ModelAndView("/login");
+        return new ModelAndView("login");
     }
 
     /**
@@ -34,7 +34,7 @@ public class WebSocketChatApplication {
      */
     @GetMapping("/index")
     public ModelAndView index(String username, HttpServletRequest request) throws UnknownHostException {
-        ModelAndView modelAndView = new ModelAndView("/chat");
+        ModelAndView modelAndView = new ModelAndView("chat");
         modelAndView.addObject("username", username);
         modelAndView.addObject("webSocketUrl",webSocketUrl);
         return modelAndView;
